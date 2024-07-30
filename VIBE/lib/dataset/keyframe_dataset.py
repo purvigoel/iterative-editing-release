@@ -107,7 +107,6 @@ class KeyframeDataset(Dataset):
         self.motion_cond = motion_cond
         self.keyframe_cond = keyframe_cond
 
-        self.skip_indices = np.load("skip_list.npy").tolist()
         self.stride = self.seqlen
         if self.dataset in ('nemomocap', 'nemomocap2'):
             assert self.seqlen == 60
@@ -709,8 +708,6 @@ class KeyframeDataset(Dataset):
         # get frame idxs
         ## indexing logic depends on the dataset
         # most datasets it's whatever is in self.vid_indices
-        if index in self.skip_indices:
-            index = 0
         if self.dataset != 'amass_hml':
             start_index, end_index = self.vid_indices[index]
         # for amass_humanml we randomly sample within the video
