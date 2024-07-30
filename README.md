@@ -20,3 +20,14 @@ In our implementation, we use ChatGPT as our LLM. As a result, an OpenAI key wil
 ### Full system (Natural Language -> Edited Motions)
 
 Coming soon! 
+
+
+### Extensions ###
+Want to try adding some new MEOs? Check out `llm/prog_prompt3.py`, which contains the prompt structure we feed to the LLM. Import new MEOs at the top of the file (`import <MEO_NAME>`), add a few in-context learning examples to the bottom of the file to show the LLM how to use the MEO. Then try `python3 openai_wrapper.py chatbot` and enter an instruction that ought to target the new MEO.
+
+### Development ###
+
+This is a research prototype and, in general, will not be regularly maintained long after release. 
+
+### Acknowlegements ###
+This work was supported by a Stanford Interdisciplinary Graduate Fellowship, the Stanford Wu Tsai Human Performance Alliance, Meta and Activision.
