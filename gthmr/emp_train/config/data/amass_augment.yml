@@ -1,0 +1,11 @@
+batch_size: 64
+num_frames: 60
+num_workers: 2
+train_sets:
+  hmr:
+  motion:
+    - amass:
+        split: 'train'
+        augment_camview: True
+eval_sets:
+  hmr:

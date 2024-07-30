@@ -1,0 +1,24 @@
+batch_size: 32
+num_frames: 60
+num_workers: 2
+data_rep: 'rot6d_ks_1'
+train_sets:
+  hmr:
+    - h36m:
+        split: 'train'
+  motion:
+eval_sets:
+  hmr:
+    - h36m:
+        split: 'val'
+    - h36m:
+        split: '1'
+    - nemomocap:
+        split: 'train'
+    - nemomocap:
+        split: 'val'
+    - 3dpw:
+        split: 'train'
+    - 3dpw:
+        split: 'val'
+

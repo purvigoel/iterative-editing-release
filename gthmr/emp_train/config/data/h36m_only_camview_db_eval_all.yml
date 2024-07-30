@@ -1,0 +1,24 @@
+batch_size: 32
+num_frames: 60
+sideline_view: False
+num_workers: 2
+train_sets:
+  hmr:
+    - h36m:
+        split: '1'
+  motion:
+eval_sets:
+  hmr:
+    - h36m:
+        split: 'val'
+    - nemomocap:
+        split: 'val'
+    - nemomocap:
+        split: 'train'
+    - h36m:
+        split: '1'
+    - 3dpw:
+        split: 'train'
+    - h36m:
+        split: 'val'
+

@@ -1,0 +1,15 @@
+batch_size: 32
+num_frames: 60
+sideline_view: False
+data_rep: 'rot6d_fc'
+num_workers: 2
+train_sets:
+  hmr:
+    - h36m:
+        split: 'train'
+  motion:
+eval_sets:
+  hmr:
+    - h36m:
+        split: 'val'
+

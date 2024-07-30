@@ -1,0 +1,12 @@
+batch_size: 64
+num_frames: 60
+num_workers: 2
+data_rep: 'rot6d_fc_shape_axyz_avel'
+train_sets:
+  hmr:
+  motion:
+    - amass_hml:
+        split: 'train'
+        augment_camview: True
+eval_sets:
+  hmr:

@@ -1,0 +1,15 @@
+batch_size: 32
+num_frames: 60
+sideline_view: False
+num_workers: 0
+drop_last: False
+train_sets:
+  hmr:
+    - nemomocap2:
+        split: 'train'
+  motion:
+eval_sets:
+  hmr:
+    - nemomocap2:
+        split: 'val'
+

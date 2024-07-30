@@ -1,0 +1,13 @@
+batch_size: 2
+num_frames: 60
+num_workers: 0
+train_sets:
+  hmr:
+    - h36m:
+        split: 'db'
+  motion:
+eval_sets:
+  hmr:
+    - h36m:
+        split: 'val'
+

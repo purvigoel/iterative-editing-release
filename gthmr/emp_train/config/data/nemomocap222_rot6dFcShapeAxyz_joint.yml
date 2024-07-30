@@ -1,0 +1,20 @@
+batch_size: 32
+num_frames: 60
+sideline_view: False
+num_workers: 0
+drop_last: False
+data_rep: 'rot6d_fc_shape_axyz'
+train_sets:
+  hmr:
+    - nemomocap2:
+        split: 'train'
+  motion:
+    - nemomocap2:
+        split: 'val'
+eval_sets:
+  hmr:
+    - nemomocap2:
+        split: 'val'
+    - nemomocap2:
+        split: 'train'
+

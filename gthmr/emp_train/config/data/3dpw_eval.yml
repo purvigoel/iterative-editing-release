@@ -1,0 +1,13 @@
+batch_size: 32
+num_frames: 60
+num_workers: 2
+train_sets:
+  hmr:
+    - h36m:
+        split: 'train'
+  motion:
+eval_sets:
+  hmr:
+    - 3dpw:
+        split: 'test'
+

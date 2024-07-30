@@ -1,0 +1,16 @@
+WEIRD # Names says NeMoMoCap2, but uses NeMoMoCap
+batch_size: 32
+num_frames: 60
+sideline_view: False
+num_workers: 0
+drop_last: False
+data_rep: 'rot6d_fc_shape_axyz'
+train_sets:
+  hmr:
+  motion:
+    - nemomocap:
+        augment_camview: True
+        split: 'val'
+eval_sets:
+  hmr:
+

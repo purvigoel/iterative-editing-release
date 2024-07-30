@@ -1,0 +1,44 @@
+DEBUG: false
+DEBUG_FREQ: 5
+LOGDIR: ''
+DEVICE: 'cuda'
+EXP_NAME: 'vibe'
+OUTPUT_DIR: 'gthmr/results/dev_viz'
+NUM_WORKERS: 8
+SEED_VALUE: -1
+DATASET:
+  SEQLEN: 16
+LOSS:
+  KP_2D_W: 0.0
+  KP_3D_W: 300.0
+  SHAPE_W: 0.06
+  POSE_W: 0.0
+  N_JOINTS: 14
+TRAIN:
+  BATCH_SIZE: 32
+  NUM_ITERS_PER_EPOCH: 100
+  PRETRAINED: ''
+  PRETRAINED_REGRESSOR: 'VIBE/data/vibe_data/spin_model_checkpoint.pth.tar'
+  RESUME: ''
+  START_EPOCH: 0
+  END_EPOCH: 30
+  LR_PATIENCE: 5
+  DATA_2D_RATIO: 0.6
+  DATASETS_2D:
+    # - 'Insta'
+#    - 'PoseTrack'
+   # - 'PennAction'
+  DATASETS_3D:
+   - 'ThreeDPW'
+    # - 'MPII3D'
+  DATASET_EVAL: 'ThreeDPW'
+  GEN_LR: 0.00005
+  GEN_WD: 0.0
+MODEL:
+  REGRESSOR_CLASS: 'Regress2MDM'
+  DECODER_PATH: '/home/groups/syyeung/jmhb/bio-pose/mdm/save/humanml_trans_enc_512/model000200000.pt'
+  DONT_USE_DECODER: False
+  WEIGHT_EXTRA_LOSS: 0.
+  PREDICT_RIGID: True
+  TEMPORAL_TYPE: 'none'
+  
