@@ -13,12 +13,12 @@ Most of the relevant files are in the `generative_infill/` folder (see, in parti
 
 ### Front-end (Natural Language -> MEO Programs)
 
-The fundamental idea of our work is framing fine-grained animation editing as program synthesis. To create programs from natural language, you can run `python3 openai_wrapper.py chatbot`. This will open a lightweight chatbot in your terminal. You can input text instructions with the format `<Original motion description>. <Editing instruction>`, e.g., `The person is kicking with the right foot. Kick higher.`. The chatbot will query the LLM using our prompt structure, and print out the generated MEO program. Further iterative instructions do not require the description of the original motion (just `Even higher!` will do). 
+The <b>fundamental</b> idea of our work is framing fine-grained animation editing as program synthesis. To create programs from natural language, run `python3 openai_wrapper.py chatbot`. This will open a lightweight chatbot in your terminal. You can input text instructions with the format `<Original motion description>. <Editing instruction>`, e.g., `The person is kicking with the right leg. Kick higher.`. The chatbot will query the LLM using our prompt structure, and print out the generated MEO program. Further iterative instructions do not require the description of the original motion (just `Even higher!` will do). 
 
-In our implementation, we use ChatGPT as our LLM. As a result, an OpenAI key will need to be provided in ``openai_wrapper.py``. Please add the code `openai.api_key = <YOUR API KEY HERE>` right under the import statements in ``openai_wrapper.py``.
+In our implementation, we use ChatGPT as our LLM. As a result, an OpenAI key will need to be provided in ``openai_wrapper.py``. Please add the code `openai.api_key = <YOUR API KEY HERE>` right under the import statements in ``openai_wrapper.py``. Make sure your environment has openai installed, e.g., ``conda install conda-forge::openai``.
 
 ### Extensions ###
-Want to try adding some new MEOs? Check out `llm/prog_prompt3.py`, which contains the prompt structure we feed to the LLM. Import new MEOs at the top of the file (`import <MEO_NAME>`), add a few in-context learning examples to the bottom of the file to show the LLM how to use the MEO. Then try `python3 openai_wrapper.py chatbot` and enter an instruction that ought to target the new MEO.
+Want to try adding some new MEOs? Check out `llm/prog_prompt3.py`, which contains the prompt structure we feed to the LLM. Import new MEOs at the top of the file (`import <MEO_NAME>`), add a few in-context learning examples to the bottom of the file to show the LLM how to use the MEO. Then try `python3 openai_wrapper.py chatbot` and enter an instruction that ought to target the new MEO. Please feel free to contact us if you need assistance.
 
 ### Full system (Natural Language -> Edited Motions)
 
