@@ -36,7 +36,7 @@ This is a big repository, built off many different repositories. If you want to 
 
 3. Download dummy data. This data is important for setting up dataloaders/model inputs. It consists of some motions from <a href="https://amass.is.tue.mpg.de/">AMASS</a>, e.g., ACCAD. Please follow the rules specified in the AMASS website for using their dataset, including citing their work appropriately if you use it in research publications. Ensure that you have the necessary permissions and adhere to their terms of use.
    <br>
-   a) The dummy data can be downloaded at this Google Drive link:
+   a) The dummy data can be downloaded at this Google Drive link: https://drive.google.com/file/d/1ju-aeHJ8hNBJrmDwG9FslA4f53Q4l5S_/view?usp=sharing
    <br>
    b) Place the data at the path `VIBE/data/vibe_db/amass_db_small.pt`
 
@@ -56,11 +56,11 @@ That's all the downloads complete! Now we can move on to actually running the mo
 
 If you'd like to use your own motions, you'll have to convert them into our data representation. <b> Note that our data representation is different from the popular HumanML3D representation. </b> I'm including a note at the end of this section with some pointers about how to do the conversion.
 
-1. You can run the system using the following command: `CUDA_VISIBLE_DEVICES=0 bash run_scripts/ghmr/generative_infill.sh 0`. The system will take a few minutes to load. Eventually, you'll see a chat open in the terminal that should look the same as when you set up the system front-end. 
+1. You can run the system using the following command: `CUDA_VISIBLE_DEVICES=0 bash run_scripts/ghmr/generative_infill.sh 0`. The system will take a few moments to load. Eventually, you'll see a chat open in the terminal that should look the same as when you set up the system front-end, as `You:   `
 
 2. Time to prompt the system. Recall that the first message to the system will require a short description of the original source motion, and an instruction. `Example: The person is jumping. At the start of the motion, raise your arms.` Click enter to run. You'll see a lot of print-outs, which includes the generated program, some motion statistics, and a lot of (poorly organized) logging. 
    
-3. The output motion will be saved in the folder specified at <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L70">the top of the file</a>. Right now, it's `dump_results/`, and the output motion is saved as `<save_dir>/synth_llm<iteration_number>_iter_joints.npy`.
+3. The output motion will be saved in the `save_dir` folder specified at <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L70">the top of the file</a>. Right now, it's `dump_results/`, and the output motion is saved as `<save_dir>/synth_llm<iteration_number>_iter_joints.npy`.
    <br>
    a) The motion is written out as SMPL joints, into a numpy file. The data has shape (1, 60, 22, 3): 60 frames, 22 joints, 3 XYZ world-space positions per joint.
    <br>
