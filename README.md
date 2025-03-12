@@ -56,17 +56,19 @@ That's all the downloads complete! Now we can move on to actually running the mo
 
 If you'd like to use your own motions, you'll have to convert them into our data representation. <b> Note that our data representation is different from the popular HumanML3D representation. </b> I'm including a note at the end of this section with some pointers about how to do the conversion.
 
-1. You can run the system using the following command: `CUDA_VISIBLE_DEVICES=0 bash run_scripts/ghmr/generative_infill.sh 0`. The system will take a few moments to load. Eventually, you'll see a chat open in the terminal that should look the same as when you set up the system front-end, as `You:   `
+1. Set the environment variable `BIO_POSE_ROOT` to the path to the repo, e.g., `export BIO_POSE_ROOT=/full/path/to/iterative-editing-release/`
 
-2. Time to prompt the system. Recall that the first message to the system will require a short description of the original source motion, and an instruction. `Example: The person is jumping. At the start of the motion, raise your arms.` Click enter to run. You'll see a lot of print-outs, which includes the generated program, some motion statistics, and a lot of (poorly organized) logging. 
+2. You can run the system using the following command: `CUDA_VISIBLE_DEVICES=0 bash run_scripts/ghmr/generative_infill.sh 0`. The system will take a few moments to load. Eventually, you'll see a chat open in the terminal that should look the same as when you set up the system front-end, as `You:   `
+
+3. Time to prompt the system. Recall that the first message to the system will require a short description of the original source motion, and an instruction. `Example: The person is jumping. At the start of the motion, raise your arms.` Click enter to run. You'll see a lot of print-outs, which includes the generated program, some motion statistics, and a lot of (poorly organized) logging. 
    
-3. The output motion will be saved in the `save_dir` folder specified at <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L70">the top of the file</a>. Right now, it's `dump_results/`, and the output motion is saved as `<save_dir>/synth_llm<iteration_number>_iter_joints.npy`.
+4. The output motion will be saved in the `save_dir` folder specified at <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L70">the top of the file</a>. Right now, it's `dump_results/`, and the output motion is saved as `<save_dir>/synth_llm<iteration_number>_iter_joints.npy`.
    <br>
    a) The motion is written out as SMPL joints, into a numpy file. The data has shape (1, 60, 22, 3): 60 frames, 22 joints, 3 XYZ world-space positions per joint.
    <br>
    b) You can use your own tools to visualize these motions (I believe the original <a href="https://github.com/GuyTevet/motion-diffusion-model">MDM repository</a> comes with one). I've also written a no-frills <a href="https://github.com/purvigoel/tiny-motion-visualizer.git">web-based skeleton visualizer</a> that handles this data and visualizes it at a localhost port. Run it with `python3 viewer.py -p <PORT> -d <PATH_TO_JOINTS_FOLDER>`. 
 
-4. If you don't want to use the LLM front-end, and would prefer to write your own MEO programs, you can write the program in the <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L296"> `execute` string </a>. Then <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L321"> set the value of `c`</a> to `execute` instead of querying the model.
+5. If you don't want to use the LLM front-end, and would prefer to write your own MEO programs, you can write the program in the <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L296"> `execute` string </a>. Then <a href="https://github.com/purvigoel/iterative-editing-release/blob/new-branch4/generative_infill/generative_infill.py#L321"> set the value of `c`</a> to `execute` instead of querying the model.
 
 #### Motion Representation ####
 
